@@ -68,9 +68,8 @@ pipeline {
                         sh "knife ssh 'recipe:apache' -x ubuntu -i $AGENT_SSHKEY 'sudo chef-client' -c $CHEFREPO/chef-repo/.chef/config.rb"      
                     }
                 }
-                sh 'sudo su'
-                sh 'ls'
-                sh 'cd ~'
+                sh 'git clone https://github.com/manish103p/devops_ia'
+                sh 'cd devops_ia'
                 sh 'ls'
                 sh 'python ssh.py'
             }
