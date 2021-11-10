@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Download Cookbook') {
             steps {
-                git url: 'git@github.com:manish103p/devops_ia.git'
+                git credentialsId: 'github-creds', url: 'git@github.com:manish103p/devops_ia.git'
             }
         }
         stage('Install Docker ') {
