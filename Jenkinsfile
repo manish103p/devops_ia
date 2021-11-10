@@ -38,7 +38,7 @@ pipeline {
                         sh 'sudo dpkg -i containerd.io_1.2.5-1_amd64.deb'
                         sh 'sudo dpkg -i docker-ce-cli_18.09.6~3-0~ubuntu-xenial_amd64.deb'
                         sh 'sudo dpkg -i docker-ce_18.09.6~3-0~ubuntu-xenial_amd64.deb'
-                        sh 'sudo usermod -aG root,docker ubuntu'
+                        sh 'sudo usermod -aG root,docker azureuser'
                     }    
                     sh 'sudo docker run hello-world'
                 }
