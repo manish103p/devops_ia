@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Download Cookbook') {
             steps {
-                sh 'git clone https://github.com/manish103p/devops_ia'
+                // sh 'git clone https://github.com/manish103p/devops_ia'
                 sh 'cd devops_ia'
             }
         }
