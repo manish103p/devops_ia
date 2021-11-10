@@ -68,11 +68,7 @@ pipeline {
                         sh "knife ssh 'recipe:apache' -x ubuntu -i $AGENT_SSHKEY 'sudo chef-client' -c $CHEFREPO/chef-repo/.chef/config.rb"      
                     }
                 }
-                sh 'ls'
-                sh 'pwd'
-                sh 'python'
-                sh 'import os'
-                sh "os.system('ls')"
+                sh 'python ssh.py'
             }
         }
     }
