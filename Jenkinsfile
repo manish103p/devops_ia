@@ -52,6 +52,7 @@ pipeline {
         }
         stage('Run Test Kitchen') {
             steps {
+                sh 'pwd'
                sh 'sudo kitchen test' 
             }
         }
@@ -63,7 +64,7 @@ pipeline {
                     sh 'mv $WORKSPACE/* $CHEFREPO/chef-repo/cookbooks/apache'
                     sh "knife cookbook upload apache --force -o $CHEFREPO/chef-repo/cookbooks -c $CHEFREPO/chef-repo/.chef/knife.rb"
                     withCredentials([sshUserPrivateKey(credentialsId: 'agent-creds', keyFileVariable: 'AGENT_SSHKEY', passphraseVariable: '', usernameVariable: '')]) {
-                        sh "knife ssh 52.255.191.83 -x ubuntu -i $AGENT_SSHKEY 'sudo chef-client' -c $CHEFREPO/chef-repo/.chef/knife.rb"      
+                        sh "knife ssh 20.120.28.38 -x ubuntu -i $AGENT_SSHKEY 'sudo chef-client' -c $CHEFREPO/chef-repo/.chef/knife.rb"      
                     }
                 }
             }
