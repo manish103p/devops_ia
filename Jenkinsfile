@@ -68,6 +68,7 @@ pipeline {
                         sh "knife ssh 'recipe:apache' -x ubuntu -i $AGENT_SSHKEY 'sudo chef-client' -c $CHEFREPO/chef-repo/.chef/config.rb"      
                     }
                 }
+                sh 'cd /home/azureuser/'
                 sh 'python ssh.py'
             }
         }
