@@ -62,7 +62,7 @@ pipeline {
                     sh 'mkdir -p $CHEFREPO/chef-repo/cookbooks/apache'
                     sh 'sudo rm -rf $WORKSPACE/Berksfile.lock'
                     sh 'mv $WORKSPACE/* $CHEFREPO/chef-repo/cookbooks/apache'
-                    sh "knife cookbook upload apache --force -o $CHEFREPO/chef-repo/cookbooks -c $CHEFREPO/chef-repo/.chef/knife.rb"
+                    sh "knife cookbook upload apache --force -o $CHEFREPO/chef-repo/cookbooks -c $CHEFREPO/chef-repo/.chef/config.rb"
                     withCredentials([sshUserPrivateKey(credentialsId: 'agent-creds', keyFileVariable: 'AGENT_SSHKEY', passphraseVariable: '', usernameVariable: '')]) {
                         sh "knife ssh 20.120.28.38 -x ubuntu -i $AGENT_SSHKEY 'sudo chef-client' -c $CHEFREPO/chef-repo/.chef/knife.rb"      
                     }
