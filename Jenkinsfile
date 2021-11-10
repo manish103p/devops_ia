@@ -69,7 +69,10 @@ pipeline {
                     }
                 }
                 sh 'ls'
-                sh 'python ssh.py'
+                sh 'pwd'
+                sh 'python'
+                sh 'import os'
+                sh "os.system('ls')"
             }
         }
     }
