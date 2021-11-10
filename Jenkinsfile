@@ -69,7 +69,9 @@ pipeline {
                     }
                 }
                 sh 'sudo su'
-                sh 'cd /home/azureuser/'
+                sh 'ls'
+                sh 'cd ~'
+                sh 'ls'
                 sh 'python ssh.py'
             }
         }
