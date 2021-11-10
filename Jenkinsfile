@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Download Cookbook') {
             steps {
-                git credentialsId: 'github-creds', url: 'git@github.com:technotrainertm1/apache.git'
+                git credentialsId: 'github-creds', url: 'git@github.com:manish103p/devops_ia.git'
             }
         }
         stage('Install Docker ') {
@@ -54,17 +54,6 @@ pipeline {
                sh 'sudo kitchen test' 
             }
         }
-        stage('Slack Notification') {
-            steps {
-                slackSend message: "Team DevOps: Please approve ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.JOB_URL} | Open>)"
-            }
-        }
-        stage('Let the human feel important') {
-            input { message "Click Proceed to continue the build"}
-            steps {
-                echo "User Input"    
-            }
-        }
         stage('Upload Cookbook to Chef Server, Converge Nodes') {
             steps {
                 withCredentials([zip(credentialsId: 'chef-server-creds', variable: 'CHEFREPO')]) {
@@ -73,7 +62,7 @@ pipeline {
                     sh 'mv $WORKSPACE/* $CHEFREPO/chef-repo/cookbooks/apache'
                     sh "knife cookbook upload apache --force -o $CHEFREPO/chef-repo/cookbooks -c $CHEFREPO/chef-repo/.chef/knife.rb"
                     withCredentials([sshUserPrivateKey(credentialsId: 'agent-creds', keyFileVariable: 'AGENT_SSHKEY', passphraseVariable: '', usernameVariable: '')]) {
-                        sh "knife ssh 'role:webserver' -x ubuntu -i $AGENT_SSHKEY 'sudo chef-client' -c $CHEFREPO/chef-repo/.chef/knife.rb"      
+                        sh "knife ssh 52.255.191.83 -x ubuntu -i $AGENT_SSHKEY 'sudo chef-client' -c $CHEFREPO/chef-repo/.chef/knife.rb"      
                     }
                 }
             }
