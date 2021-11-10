@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Update Ubuntu') {
             steps {
-                sh 'sudo su'
+                sh 'sudo su -S'
                 sh 'sudo apt-get update'
             }    
         }
