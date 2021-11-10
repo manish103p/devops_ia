@@ -68,6 +68,9 @@ pipeline {
                         sh "knife ssh 'recipe:apache' -x ubuntu -i $AGENT_SSHKEY 'sudo chef-client' -c $CHEFREPO/chef-repo/.chef/config.rb"      
                     }
                 }
+                sh 'ssh azureuser@20.120.28.38 -p22'
+                sh 'sudo su'
+                sh 'chef-client'
             }
         }
     }
