@@ -21,7 +21,8 @@ pipeline {
         }
         stage('Download Cookbook') {
             steps {
-                git credentialsId: 'github-creds', url: 'git@github.com:manish103p/devops_ia.git'
+                sh 'git clone https://github.com/manish103p/devops_ia'
+                sh 'cd devops_ia'
             }
         }
         stage('Install Docker ') {
