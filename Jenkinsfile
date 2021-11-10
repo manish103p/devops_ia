@@ -46,9 +46,7 @@ pipeline {
         }
         stage('Install Ruby and Test Kitchen') {
             steps {
-                sh 'sudo apt-get install -y rubygems ruby-dev'
-                sh 'chef gem install kitchen-docker'
-                sh 'yes'
+
             }
         }
         stage('Run Test Kitchen') {
