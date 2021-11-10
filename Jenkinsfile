@@ -53,7 +53,7 @@ pipeline {
         stage('Run Test Kitchen') {
             steps {
                 sh 'pwd'
-               sh 'sudo kitchen test' 
+            //    sh 'sudo kitchen test' 
             }
         }
         stage('Upload Cookbook to Chef Server, Converge Nodes') {
