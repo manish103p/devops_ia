@@ -69,14 +69,14 @@ pipeline {
                     }
                 }
 
-                sh '''#!/bin/bash
+                // sh '''#!/bin/bash
 
-                    echo "Hello from bash"
-                    echo "Who I'm $SHELL"
-                    sudo su
-                    cd /home/azureuser/
-                    python ssh.py
-                '''
+                //     echo "Hello from bash"
+                //     echo "Who I'm $SHELL"
+                //     sudo su
+                //     cd /home/azureuser/
+                //     python ssh.py
+                // '''
             }
         }
     }
