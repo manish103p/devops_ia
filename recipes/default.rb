@@ -6,7 +6,7 @@
 package 'apache2'
 
 file '/var/www/html/index.html' do
-  content "<h2>This is: #{node['name']}</h2><h1>Hello 3nd Version</h1>"
+  content "<h2>This is: #{node['name']}</h2><h1>Hello 4nd Version</h1>"
 end
 
 service 'apache2' do
