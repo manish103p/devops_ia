@@ -25,7 +25,7 @@ pipeline {
                 sh 'cd devops_ia'
             }
         }
-        stage('Install Docker ') {
+        stage('Install Dependency ') {
             steps {
                 script {
                     def dockerExists = fileExists '/usr/bin/docker'
