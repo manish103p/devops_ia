@@ -3,7 +3,7 @@ package 'apache2'
 
 file '/var/www/html/index.html' do
   content "
-  <h2>This is: #{node['name']}</h2><h1>Hello 11th Version</h1>
+  <h2>This is: #{node['name']}</h2><h1>Hello 12th Version</h1>
   "
 end
 
